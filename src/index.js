@@ -4,11 +4,26 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { FronteggProvider } from '@frontegg/react';
+
+const contextOptions = {
+  baseUrl: 'https://app-yq80a1sy3f63.frontegg.com',
+  clientId: '218c9f26-7571-41e8-9fc2-dbbf99019edf'
+};
+
+const authOptions = {
+ // keepSessionAlive: true // Uncomment this in order to maintain the session alive
+};
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <FronteggProvider contextOptions={contextOptions} 
+  hostedLoginBox={true}
+  authOptions={authOptions}>
     <App />
-  </React.StrictMode>
+  </FronteggProvider>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
