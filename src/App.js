@@ -1,10 +1,13 @@
 
 import './App.css';
-import { useAuth, useLoginWithRedirect, ContextHolder } from "@frontegg/react";
+// import { useAuth, useLoginWithRedirect, ContextHolder } from "@frontegg/react";
+import Events from './Events.jsx'
+
+
 
 function App() {
-  const { user, isAuthenticated } = useAuth();
-  const loginWithRedirect = useLoginWithRedirect();
+  // const { user, isAuthenticated } = useAuth();
+  // const loginWithRedirect = useLoginWithRedirect();
 
   // Uncomment this to redirect to login automatically
   // useEffect(() => {
@@ -13,15 +16,15 @@ function App() {
   //   }
   // }, [isAuthenticated, loginWithRedirect]);
 
-  const logout = () => {
-    const baseUrl = ContextHolder.getContext().baseUrl;
-    window.location.href = `${baseUrl}/oauth/logout?post_logout_redirect_uri=${window.location}`;
-  };
+  // const logout = () => {
+  //   const baseUrl = ContextHolder.getContext().baseUrl;
+  //   window.location.href = `${baseUrl}/oauth/logout?post_logout_redirect_uri=${window.location}`;
+  // };
 
 
   return (
     <div className="App">
-      { isAuthenticated ? (
+      {/* { isAuthenticated ? (
         <div>
           <div>
             <img src={user?.profilePictureUrl} alt={user?.name}/>
@@ -40,7 +43,8 @@ function App() {
         <div>
           <button onClick={() => loginWithRedirect()}>Click me to login</button>
         </div>
-      )}
+      )} */}
+      <Events />
     </div>
   );
 }
